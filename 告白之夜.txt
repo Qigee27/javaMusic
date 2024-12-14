@@ -1,0 +1,9 @@
+major:F#
+PPQ:4/4
+BPM:80
+rightStart
+
+rightEnd
+leftStart
+
+leftEnd
