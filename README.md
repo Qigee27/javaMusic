@@ -53,6 +53,8 @@
 
 
 原项目的作者：zhengxiaowai
+
 原项目：https://github.com/zhengxiaowai/music-player
+
 此项目为原项目的重构版本，修改了部分代码，并添加了一些新的谱子。
 
