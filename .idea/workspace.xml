@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e71a16f-0f40-444a-973e-fab943c7b66b" name="变更" comment="首次提交">
+    <list default="true" id="2e71a16f-0f40-444a-973e-fab943c7b66b" name="变更" comment="修改后的内容">
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -118,7 +118,7 @@
       <workItem from="1701741860745" duration="78000" />
       <workItem from="1734184473850" duration="2189000" />
       <workItem from="1734186670818" duration="484000" />
-      <workItem from="1734187159268" duration="1490000" />
+      <workItem from="1734187159268" duration="1876000" />
     </task>
     <task id="LOCAL-00001" summary="首次提交">
       <created>1734188366725</created>
@@ -127,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1734188366725</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="修改后的内容">
+      <created>1734188675078</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1734188675078</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,6 +156,7 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="首次提交" />
-    <option name="LAST_COMMIT_MESSAGE" value="首次提交" />
+    <MESSAGE value="修改后的内容" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改后的内容" />
   </component>
 </project>
