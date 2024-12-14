@@ -1,160 +1,9 @@
-# MySound
-
-//        p.setInstrument(40,1);
-//       p.setFile("起风了.txt");
-//       p.setFile("Tassel.txt");
-//       p.setFile("菊次郎的夏天.txt");
-//       p.setFile("My Soul.txt");
-//        p.setFile("动天.txt");//不好听
-//        p.setFile("夜的钢琴曲五.txt");
-//        p.setFile("生日快乐歌.txt");//不好听
-//        p.setFile("komorebi.txt");
-//        p.setFile("告白之夜.txt");
-//p.setFile("悬溺.txt");
-//p.setFile("起风了.txt");
-//p.setFile("My Soul.txt");
-//p.setFile("夜的钢琴曲五.txt");
-//p.setFile("komorebi.txt");
-//p.setFile("菊次郎的夏天.txt");
-//p.setFile("Tassel.txt");
-//p.setFile("动天.txt");//不好听
-
-
-
-
-
-
-//对外接口
-public class Pigeon7 implements MetaEventListener {
-
-    /*    (command >= 0xF0 || command < 0x80) //0x80开始，0x90结束，0xa0，0xb0，0xc0，0xd0，0xe0
-        (channel & 0xFFFFFFF0) != 0)
-        满足上边两个条件会报错*/
-    MyStringDistributerIMPL md = new MyStringDistributerIMPL();
-    MyFileReaderTxt mf = new MyFileReaderTxt();
-    Sequencer player;
-    String file;
-    private boolean reserve = false;
-
-    public void setReserve(boolean reserve) {
-        this.reserve = reserve;
-    }
-
-    public Pigeon7() throws Exception {
-        player = MidiSystem.getSequencer();
-    }
-
-    public void setFile(String file) {
-        this.file = file;
-    }
-
-    long tick;
-    boolean first = true;
-
-    @Override
-    public void meta(MetaMessage meta) {
-        if (meta.getType() == 127) {
-            String data = new String(meta.getData());
-            String[] arr = data.split(" ");
-            String note = arr[0];
-            long currentTick = player.getTickPosition();
-            if (tick < currentTick / md.getMyNoteIMPL().getBarTick()) {
-                tick = currentTick / md.getMyNoteIMPL().getBarTick();
-                System.out.println();
-                System.out.printf("%5d:当前第%3d/%3d节:  ", currentTick, (tick + 1), player.getTickLength() / md.getMyNoteIMPL().getBarTick());
-                System.out.printf("%-5s", md.getMyNoteIMPL().calNoteNum(Integer.parseInt(note)));
-            } else {
-                if (first) {
-                    System.out.printf("%5d:当前第%3d/%3d节:  ", currentTick, (tick + 1), player.getTickLength() / md.getMyNoteIMPL().getBarTick());
-                    first = false;
-                }
-                String s = md.getMyNoteIMPL().calNoteNum(Integer.parseInt(note));
-                System.out.printf("%-5s", s);
-            }
-        } else if (meta.getType() == 47) {
-            System.out.println();
-            System.out.println("播放完毕");
-            player.close();
-        } else {
-            System.out.println(meta.getType());
-        }
-    }
-    public MyNoteIMPL getMyNoteIMPL() {
-        return md.getMyNoteIMPL();
-    }
-
-    public float getBPM() {
-        return player.getTempoInBPM();
-    }
-
-    public String getPPQ() {
-        return getMyNoteIMPL().getPpq();
-    }
-
-    public void play() throws Exception {
-        RandomAccessFile read = mf.Read(file);
-        md.distribute(read);
-        player.setTempoInBPM(md.getMyNoteIMPL().getBpm());
-        player.open();
-        Thread.sleep(200);
-        if (reserve) {
-            reversePlay();
-        }
-        player.setSequence(md.getSequence());
-        player.addMetaEventListener(this);
-        if (player.getSequence() == null) {
-            player.close();
-            return;
-        }
-        player.start();
-    }
-    //倒放
-    private void reversePlay() {
-        Track track = md.getSequence().getTracks()[0];
-        Track track1 = md.getSequence().createTrack();
-        CopyOnWriteArrayList<NoteInfo> noteInfoList = md.getNoteInfoList();
-        CopyOnWriteArrayList<NoteInfo> noteInfoList2 = new CopyOnWriteArrayList<>();
-
-        for (int i = 0; i < track.size(); i++) {
-            MidiEvent midiEvent = track.get(i);
-            long tick = track.ticks() - midiEvent.getTick();
-            midiEvent.setTick(tick);
-            track1.add(midiEvent);
-        }
-        for (int i = noteInfoList.size() - 1; i >= 0; i--) {
-            long tick = track1.ticks();
-            NoteInfo noteInfo = noteInfoList.get(i);
-            noteInfo.setOriginTick(tick - noteInfo.getOriginTick());
-            noteInfoList2.add(noteInfo);
-        }
-        md.setNoteInfoList(noteInfoList2);
-        md.getSequence().deleteTrack(track);
-    }
-
-//p.setReserve(false);//true倒放
-### 介绍
-
-自定义乐谱解释器
-
 ### 安装教程
 
 1. 下载源码到本地
 2. 用IDEA打开,其他的(如eclipse)需要自己调试
 3. 运行MyPlayer中的main方法即可
 4. 不需要任何第三方库,装了java就可以玩
-
-## 重要!!!
-
-1. 不要过度研究当下版本,可以当玩具研究下.目前设计上还有很多缺陷,后续会大改
-近期没时间,有时间会继续完善
-2. 还有,java的就业方向以web开发为主,还在上学的小伙伴一定要研究好再选择,切
-不可因一时好玩草率选择编程语言
-3. 着急研究midi相关api的小伙伴可移步[Oracle官方demo]
-4. 着急用音乐编程达到更好效果的小伙伴可以搜索关键字 JFugue, abc4j(太老了)这些项目
-开源且成熟,能快速实现一个乐队(前提你懂乐理)
-5. 着急编曲的小伙伴请搜索引擎自行搜索 打谱软件 会找到你想要的
-
-[Oracle官方demo]:https://www.oracle.com/java/technologies/java-sound-demo.html
 
 #### 使用说明
 
@@ -202,7 +51,7 @@ public class Pigeon7 implements MetaEventListener {
 #### 说明:
 
 ````
-    目前本项目以钢琴为,只实现了部分钢琴技法,主要是针对简谱,
-后续会增加五线谱以及JFugue以及xmlmusic的解析,以上只是设想,
-目前没空,有空还能想起来的话,再写吧
+    原项目的作者：zhengxiaowai
+    原项目：https://github.com/zhengxiaowai/music-player
+    此项目为原项目的重构版本，修改了部分代码，并添加了一些新的功能。
 ````
