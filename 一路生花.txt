@@ -1,4 +1,4 @@
-major:C
+major:A
 PPQ:4/4
 BPM:96
 rightStart
