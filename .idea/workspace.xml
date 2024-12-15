@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e71a16f-0f40-444a-973e-fab943c7b66b" name="变更" comment="修改后的内容">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/一路生花.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pigeon/Pigeon7.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pigeon/Pigeon7.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +66,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Pigeon7" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.pigeon.baiqiqi.Pigeon7" />
+      <option name="MAIN_CLASS_NAME" value="com.pigeon.Pigeon7" />
       <module name="Pigeon7" />
       <extension name="coverage">
         <pattern>
@@ -118,7 +120,8 @@
       <workItem from="1701741860745" duration="78000" />
       <workItem from="1734184473850" duration="2189000" />
       <workItem from="1734186670818" duration="484000" />
-      <workItem from="1734187159268" duration="1876000" />
+      <workItem from="1734187159268" duration="4725000" />
+      <workItem from="1734229794686" duration="655000" />
     </task>
     <task id="LOCAL-00001" summary="首次提交">
       <created>1734188366725</created>
@@ -134,7 +137,21 @@
       <option name="project" value="LOCAL" />
       <updated>1734188675078</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="修改后的内容">
+      <created>1734189211860</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1734189211860</updated>
+    </task>
+    <task id="LOCAL-00004" summary="修改后的内容">
+      <created>1734189294266</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1734189294266</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
