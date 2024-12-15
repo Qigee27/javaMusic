@@ -53,7 +53,7 @@ hh3++ -h6 -h5
 -h6 --hh3 --hh3 ^hh3 -h6 --hh3 --hh3 ^hh3
 //40
 h5 -hh2 -h7 hh1 -h6 -h5
--h6 --hh3 --hh3 ^-hh3 -h5 -h6. --hh3 ^-hh3 -hh5
+-h6 --hh3 --hh3 ^-hh3 -h5 -h6. --hh3 ^-hh3 -h5
 h6+++
 h1 -h1. --5 -h1 -h2 -h3 -h5
 //44
