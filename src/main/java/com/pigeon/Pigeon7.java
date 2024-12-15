@@ -87,7 +87,6 @@ public class Pigeon7 implements MetaEventListener {
     public static void main(String[] args) throws Exception {
         Pigeon7 p = new Pigeon7();
         p.setFile("一路生花.txt");
-        p.getMyNoteIMPL().setBarTick(480);
         p.play();
     }
 }
